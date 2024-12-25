@@ -1,0 +1,10 @@
+{
+    "name": "hccc/3-col-content",
+    "description": "3-column content transformer with XSLT",
+    "require": {
+        "php": "^7.4|^8.0",
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "ext-xsl": "*"
+    }
+} 

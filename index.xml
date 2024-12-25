@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="transform.xslt"?>
+<cards>
+    <card>
+        <image>https://via.placeholder.com/300x200</image>
+        <title>Test1</title>
+        <text></text>
+        <footer>Footer Content 1</footer>
+    </card>
+    <card>
+        <image>https://via.placeholder.com/300x200</image>
+        <title></title>
+        <text></text>
+        <footer>Footer Content 2</footer>
+    </card>
+    <card>
+        <image>https://via.placeholder.com/300x200</image>
+        <title></title>
+        <text>Test2</text>
+        <footer>Footer Content 3</footer>
+    </card>
+    <card>
+        <image>https://via.placeholder.com/300x200</image>
+        <title>Test3</title>
+        <text>Test3</text>
+        <footer>Footer Content 4</footer>
+    </card>
+</cards> 
