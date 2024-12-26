@@ -1,25 +1,33 @@
-# HCCC 3-Column Content Component
+# HCCC Card Layout Component
 
-A flexible three-column card layout component using XML and XSLT transformation. This component provides a clean separation between content and presentation, making it easy to maintain and update card content.
+A flexible card layout component using XML and XSLT transformation. This component provides a clean separation between content and presentation, making it easy to maintain and update card content.
 
 ## Features
 
 - XML-based content management
 - XSLT transformation for dynamic HTML generation
-- Bootstrap 5 styling with square corners
+- Bootstrap 5 card group styling with square corners
 - Conditional rendering of card elements
-- Responsive layout (3 columns on desktop, stacks on mobile)
+- Configurable number of cards per row
+- Responsive layout (stacks on mobile)
 
 ## File Structure
 
-- `cards.xml` - Content data in XML format
+- `index.xml` - Content data in XML format
 - `transform.xslt` - XSLT transformation rules
 - `composer.json` - PHP dependencies
 - `README.md` - Documentation
 
 ## Content Structure
 
-Each card in `cards.xml` can have:
+The root element can specify the number of cards per row:
+```xml
+<cards cards-per-row="3">
+    <!-- card elements -->
+</cards>
+```
+
+Each card in `index.xml` can have:
 - `image` - URL of the card image
 - `title` - Card title (optional)
 - `text` - Card description (optional)
@@ -27,16 +35,27 @@ Each card in `cards.xml` can have:
 
 The card-body section only appears if either title or text has content.
 
+## Configuration
+
+### Cards Per Row
+Set the number of cards per row using the `cards-per-row` attribute in the root element:
+```xml
+<cards cards-per-row="4">  <!-- Shows 4 cards per row -->
+```
+Default is 3 if not specified.
+
 ## Usage
 
 1. Add or modify cards in `index.xml`:
 ```xml
-<card>
-    <image>image_url</image>
-    <title>card_title</title>
-    <text>card_description</text>
-    <footer>footer_content</footer>
-</card>
+<cards cards-per-row="3">
+    <card>
+        <image>image_url</image>
+        <title>card_title</title>
+        <text>card_description</text>
+        <footer>footer_content</footer>
+    </card>
+</cards>
 ```
 
 2. Access through a web server:
@@ -68,8 +87,13 @@ composer install
 ## Development
 
 The XSLT transformation (`transform.xslt`) handles:
+- Dynamic card grouping based on cards-per-row setting
 - Conditional rendering of card-body based on content
-- Bootstrap class application
+- Bootstrap card-group implementation
 - Square corner styling (rounded-0)
 - Responsive layout structure
-```
+
+### Card Body Rendering
+- Card body only appears if title or text has content
+- Title and text elements are individually conditional
+- Empty elements are completely removed from output
